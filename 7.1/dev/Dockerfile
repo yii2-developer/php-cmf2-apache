@@ -1,7 +1,15 @@
 FROM nsign/php-apache:7.1
 
+RUN mkdir /opt/tmp && cd /opt/tmp \
+    && wget http://download.icu-project.org/files/icu4c/58.2/icu4c-58_2-src.tgz \
+    && tar zxvf icu4c-58_2-src.tgz \
+    && cd icu/source \
+    && ./configure --prefix=/opt/icu582 && make && make install \
+    && rm -rf /opt/tmp
+
 RUN apt-get update \
     && apt-get install -y --no-install-recommends libicu52 libicu-dev \
+    && docker-php-ext-configure intl --with-icu-dir=/opt/icu582 \
     && docker-php-ext-install intl \
     && docker-php-ext-enable intl \
 
