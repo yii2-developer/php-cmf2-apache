@@ -22,4 +22,4 @@ RUN apt-get update \
     && apt-get autoremove -y && apt-get clean all
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
-    && composer global require "fxp/composer-asset-plugin:^1.3.1"
+    && composer global require "fxp/composer-asset-plugin:^1.4.1"
