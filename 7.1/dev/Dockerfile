@@ -23,5 +23,4 @@ RUN pecl install https://xdebug.org/files/xdebug-2.5.5.tgz \
 
     && apt-get autoremove -y && apt-get clean all
 
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
-    && composer global require "fxp/composer-asset-plugin:^1.4.1"
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
