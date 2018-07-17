@@ -19,8 +19,8 @@ RUN apt-get update \
     && docker-php-ext-enable pdo_mysql
 
 RUN pecl install https://xdebug.org/files/xdebug-2.5.5.tgz \
-    && docker-php-ext-enable xdebug \
+    && docker-php-ext-enable xdebug
 
-RUN apt-get autoremove -y && apt-get clean all
+RUN rm -rf /var/lib/apt/lists/*
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer

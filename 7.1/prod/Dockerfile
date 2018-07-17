@@ -16,6 +16,6 @@ RUN apt-get update \
 RUN apt-get update \
     && apt-get install -y --no-install-recommends mysql-client \
     && docker-php-ext-install pdo_mysql \
-    && docker-php-ext-enable pdo_mysql \
+    && docker-php-ext-enable pdo_mysql
 
-RUN apt-get autoremove -y && apt-get clean all
+RUN rm -rf /var/lib/apt/lists/*
