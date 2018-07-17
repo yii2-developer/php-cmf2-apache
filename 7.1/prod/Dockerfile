@@ -18,4 +18,4 @@ RUN apt-get update \
     && docker-php-ext-install pdo_mysql \
     && docker-php-ext-enable pdo_mysql \
 
-    && apt-get autoremove -y && apt-get clean all
+RUN apt-get autoremove -y && apt-get clean all
