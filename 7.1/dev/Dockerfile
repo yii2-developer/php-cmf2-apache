@@ -21,6 +21,12 @@ RUN apt-get update \
 RUN pecl install https://xdebug.org/files/xdebug-2.6.1.tgz \
     && docker-php-ext-enable xdebug
 
+RUN apt-get update \
+    && mkdir -p /usr/share/man/man1/ \
+    && apt-get install -y --no-install-recommends default-jre
+
+COPY usr/bin/* /usr/bin/
+
 RUN rm -rf /var/lib/apt/lists/*
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
